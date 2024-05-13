@@ -4,7 +4,7 @@ html,body {
   padding: 0;
   transition: background-color 0.3s ease;
   color: #fff;
-  height: max(100%,100vh);
+  min-height: max(100%, 100vh);
   background: linear-gradient(135deg, #000, #57cdac);
 }
 
@@ -133,9 +133,9 @@ a:active {
   padding: 0;
   width: 200px;
   background-color: rgb(10,10,10,0.4);
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+  height: calc(100vh - 70px);
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  overflow-x: hidden; /* Disable horizontal scroll */
   border-radius: 10px;
 }
 
