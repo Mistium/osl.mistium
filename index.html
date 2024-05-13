@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>OSL Docs</title>
-    <meta content="Mistium" property="og:title"/>
-    <meta content="OSL Methods Documentation" property="og:description" />
+    <meta content="OSL Docs" property="og:title"/>
+    <meta content="Documentation for some parts of osl" property="og:description" />
     <meta content="https://osl.mistium.com" property="og:url"/>
     <meta
         content="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/6360032/cd4d79c9837e432d8a738fcb20adddb0/eyJ3IjoyMDB9/1.gif?token-time=2145916800&token-hash=s7N1XbcZeTyM5x9yoeuBVHas76l-DLNV3C1F93rdAUs%3D"
@@ -48,6 +48,13 @@
             <a href="#O_strings">String Operators</a>
             <a href="#O_Vectors">Vector Operators</a>
             <a href="#O_Arrays">Array Operators</a>
+        </div>
+        <p class="section">Modifiers</p>
+        <div class="modifiers">
+            <a href="#C_About">About Modifiers</a>
+            <a href="#C_Position">Positioning</a>
+            <a href="#C_Style">Styling</a>
+            <a href="#C_Other">Other</a>
         </div>
     </div>
     <div class="content">
@@ -944,6 +951,83 @@
                     "returns": "array"
                 },
             },
+            "C_About":{
+                "About Modifiers":{
+                    "description":"Modifiers are used to do changes and modifications to elements on the fly",
+                    "syntax":"command : modifier modifier modifier",
+                    "parameters":{
+                        "command":"The Command Being Run",
+                        "modifier":"A modifier to apply"
+                    },
+                    "returns":"nothing"
+                },
+            },
+            "C_Position":{
+                "chx#int":{
+                    "description":"Changes the x position of an element",
+                    "syntax":"chx#int",
+                    "parameters":{
+                        "int":"The amount to change the x position by"
+                    },
+                },
+                "chy#int":{
+                    "description":"Changes the y position of an element",
+                    "syntax":"chy#int",
+                    "parameters":{
+                        "int":"The amount to change the y position by"
+                    },
+                },
+            },
+            "C_Style":{
+                "c#colour":{
+                    "description":"Changes the colour of an element",
+                    "syntax":"c#colour",
+                    "parameters":{
+                        "colour":"The colour to change to"
+                    },
+                },
+                "hover_c#colour":{
+                    "description":"Changes the colour of an element when hovered over",
+                    "syntax":"hover_c#colour",
+                    "parameters":{
+                        "colour":"The colour to change to"
+                    },
+                },
+                "hover_size#int":{
+                    "description":"Changes the size of an element when hovered over",
+                    "syntax":"hover_size#int",
+                    "parameters":{
+                        "int":"The size to change to"
+                    },
+                },
+                "click_c#colour":{
+                    "description":"Changes the colour of an element when clicked",
+                    "syntax":"click_c",
+                },
+                "click_size#int":{
+                    "description":"Changes the size of an element when clicked",
+                    "syntax":"click_size#int",
+                    "parameters":{
+                        "int":"The size to change to"
+                    },
+                },
+            },
+            "C_Other":{
+                "cursor#type":{
+                    "description":"Changes the cursor when hovered over an element",
+                    "syntax":"cursor#type",
+                    "parameters":{
+                        "type":"The type of cursor to change to"
+                    },
+                },
+                "tooltip#text":{
+                    "description":"Adds a tooltip to an element",
+                    "syntax":"tooltip#text",
+                    "parameters":{
+                        "text":"The text to display in the tooltip"
+                    },
+                },
+            }
         };
         function generateJSONInfo(section) {
             var jsonInfoContainer = document.getElementById("jsonInfo");
