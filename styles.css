@@ -202,9 +202,10 @@ div.content {
 
 /* CSS for showing dropdown content when dropdown is clicked */
 .dropdown-content.show {
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgb(10,10,10,0.6);
-  margin: 10px;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
