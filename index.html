@@ -29,6 +29,20 @@
             .catch(error => console.error('Error fetching topbar HTML:', error));
     </script>
     <div class="sidebar">
+        <p class="section">Variables</p>
+        <div class="methods">
+            <a href="#V_Time">Time</a>
+            <a href="#V_Performance">Performance</a>
+            <a href="#V_Window">Window</a>
+            <a href="#V_Networking">Networking</a>
+            <a href="#V_Transmit">Transmit</a>
+            <a href="#V_Files">Files</a>
+            <a href="#V_Mouse">Mouse</a>
+            <a href="#V_Battery">Battery</a>
+            <a href="#V_Data">Data</a>
+            <a href="#V_Constants">Constants</a>
+            <a href="#V_Background">Background</a>
+        </div>
         <p class="section">Methods</p>
         <div class="methods">
             <a href="#M_Math">Math Methods</a>
@@ -80,6 +94,406 @@
         }
         // JSON object containing profile data
         var pages = {
+            "V_Time":{
+                "timezone":{
+                    "description": "Returns the timezone of the user",
+                    "syntax": "timezone",
+                    "parameters": {},
+                    "returns": "string"
+                },
+                "timestamp":{
+                    "description": "Returns the current timestamp",
+                    "syntax": "timestamp",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "timer":{
+                    "description": "Returns the time since the last frame",
+                    "syntax": "timer",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "second":{
+                    "description": "Returns the current second",
+                    "syntax": "second",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "minute":{
+                    "description": "Returns the current minute",
+                    "syntax": "minute",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "hour":{
+                    "description": "Returns the current hour",
+                    "syntax": "hour",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "day_number":{
+                    "description": "Returns the current day",
+                    "syntax": "day",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "day":{
+                    "description": "Returns the current day",
+                    "syntax": "day",
+                    "parameters": {},
+                    "returns": "string"
+                },
+                "month_number":{
+                    "description": "Returns the current month",
+                    "syntax": "month",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "month":{
+                    "description": "Returns the current month",
+                    "syntax": "month",
+                    "parameters": {},
+                    "returns": "string"
+                },
+                "year":{
+                    "description": "Returns the current year",
+                    "syntax": "year",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "wincreatetime":{
+                    "description":"The timestamp for when the window was created",
+                    "syntax":"wincreatetime",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "window_timer":{
+                    "description":"The time the window has been open, in miliseconds",
+                    "syntax":"wuptime",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Performance":{
+                "performance":{
+                    "description":"A simple wrapper for window.performance.now()",
+                    "syntax":"performance",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "fps":{
+                    "description":"The current frames per second",
+                    "syntax":"fps",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "delta_time":{
+                    "description":"The time since the last frame",
+                    "syntax":"delta_time",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Window":{
+                "window_id_index":{
+                    "description":"The index of the window, lower the index, higher the window",
+                    "syntax":"window_id_index",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "my_uuid":{
+                    "description":"The uuid of the window's file",
+                    "syntax":"my_uuid",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "save_directory":{
+                    "description":"The directory in the osl save system where the window can save files",
+                    "syntax":"save_directory",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "window_focused":{
+                    "description":"Returns if the window is focused",
+                    "syntax":"window_focused",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "window_name":{
+                    "description":"The name of the window",
+                    "syntax":"window_name",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "window_colour":{
+                    "description":"The backgrund colour of the window (writable)",
+                    "syntax":"window_colour",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "window_width":{
+                    "description":"The width of the window",
+                    "syntax":"window_width",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "window_height":{
+                    "description":"The height of the window",
+                    "syntax":"window_height",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "window":{
+                    "description":"The window object, contains all window properties",
+                    "syntax":"window",
+                    "parameters":{},
+                    "returns":"object"
+                },
+                "parent":{
+                    "description":"The id of the window that created the current window",
+                    "syntax":"parent",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "window_id":{
+                    "description":"The id of the window",
+                    "syntax":"window_id",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "minimised_text":{
+                    "description":"The text that appears when the window is minimised",
+                    "syntax":"minimised_text",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "window_create_data":{
+                    "description":"The data that was passed to the window when it was created",
+                    "syntax":"window_create_data",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "window_resizable":{
+                    "description":"Returns if the window is resizable",
+                    "syntax":"window_resizable",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+            },
+            "V_Networking":{
+                "new_network_data":{
+                    "description":"Returns if there is new network data",
+                    "syntax":"new_network_data",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "network_data":{
+                    "description":"The network data",
+                    "syntax":"network_data",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "network_data_from":{
+                    "description":"The instance id that sent you a message",
+                    "syntax":"network_data_from",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "network_data_source":{
+                    "description":"The networking id that a message came from",
+                    "syntax":"network_data_source",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Transmit":{
+                "new_transmit":{
+                    "description":"Returns if there is new transmit data",
+                    "syntax":"new_transmit",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "transmit_data":{
+                    "description":"The transmit data",
+                    "syntax":"transmit_data",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "transmit_source":{
+                    "description":"The window id that sent you a transmit message",
+                    "syntax":"transmit_source",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Files":{
+                "file_dropped":{
+                    "description":"Returns the file id of a file that has been drag and dropped onto your window, or 0 if no file has been dropped",
+                    "syntax":"file_dropped",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Mouse":{
+                "mouse_x":{
+                    "description":"The x position of the mouse",
+                    "syntax":"mouse_x",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "mouse_y":{
+                    "description":"The y position of the mouse",
+                    "syntax":"mouse_y",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "scroll_velocity":{
+                    "description":"The scroll velocity of the mouse",
+                    "syntax":"scroll_velocity",
+                    "parameters":{},
+                    "returns":"number"
+                },
+                "cursor":{
+                    "description":"The current cursor displayed on the screen",
+                    "syntax":"cursor",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "mouse_down":{
+                    "description":"Returns if the mouse is down",
+                    "syntax":"mouse_down",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "mouse_left":{
+                    "description":"Returns if the left mouse button is down",
+                    "syntax":"mouse_left_down",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "mouse_right":{
+                    "description":"Returns if the right mouse button is down",
+                    "syntax":"mouse_right_down",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "mouse_ondown":{
+                    "description":"Returns true only on the first frame that the mouse is clicked",
+                    "syntax":"mouse_ondown",
+                    "parameters":{},
+                    "returns":"boolean"
+                }
+            },
+            "V_Battery":{
+                "battery_charging":{
+                    "description":"Returns if the battery is charging",
+                    "syntax":"battery_charging",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "battery_percent":{
+                    "description":"The battery level",
+                    "syntax":"battery_percent",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "battery_time_until_full":{
+                    "description":"The time until the battery is full",
+                    "syntax":"battery_time_until_full",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "battery_time_until_empty":{
+                    "description":"The time until the battery is empty",
+                    "syntax":"battery_time_until_empty",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Data":{
+                "global_accent":{
+                    "description":"The global accent colour",
+                    "syntax":"global_accent",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "focused_application":{
+                    "description":"The id of the application that is currently focused",
+                    "syntax":"focused_application",
+                    "parameters":{},
+                    "returns":"int"
+                },
+            },
+            "V_Constants":{
+                "null":{
+                    "description":"The null value",
+                    "syntax":"null",
+                    "parameters":{},
+                    "returns":"null"
+                },
+                "true":{
+                    "description":"The true value",
+                    "syntax":"true",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "false":{
+                    "description":"The false value",
+                    "syntax":"false",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "pi":{
+                    "description":"The value of pi",
+                    "syntax":"pi",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "on_mobile":{
+                    "description":"Returns if the user is on a mobile device",
+                    "syntax":"on_mobile",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+                "system_url":{
+                    "description":"The domain that origin is running on",
+                    "syntax":"system_url",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "system_os":{
+                    "description":"The host os that is running origin",
+                    "syntax":"system_os",
+                    "parameters":{},
+                    "returns":"string"
+                },
+            },
+            "V_Background":{
+                "background_url":{
+                    "description":"The background url",
+                    "syntax":"background_url",
+                    "parameters":{},
+                    "returns":"string"
+                },
+                "background_width":{
+                    "description":"The background width in pixels",
+                    "syntax":"background_width",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "background_height":{
+                    "description":"The background height in pixels",
+                    "syntax":"background_height",
+                    "parameters":{},
+                    "returns":"int"
+                },
+                "bg_redrawn":{
+                    "description":"Returns if the screen has been refreshed",
+                    "syntax":"bg_redrawn",
+                    "parameters":{},
+                    "returns":"boolean"
+                },
+            },
             "M_Math": {
                 "add()": {
                     "description": "Adds an integer to its input",
