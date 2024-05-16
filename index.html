@@ -279,6 +279,70 @@
                     },
                     "returns": "int"
                 },
+                "toTitle()":{
+                    "description": "Converts a string to title case",
+                    "syntax": "a.toTitle()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "toMixed()":{
+                    "description": "Converts a string to mixed case",
+                    "syntax": "a.toMixed()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "btoa()":{
+                    "description": "Encodes a string to base64",
+                    "syntax": "a.btoa()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "atob()":{
+                    "description": "Decodes a base64 string",
+                    "syntax": "a.atob()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "hashMD5()":{
+                    "description": "Hashes a string with MD5",
+                    "syntax": "a.hashMD5()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "hashSHA1":{
+                    "description": "Hashes a string with SHA1",
+                    "syntax": "a.hashSHA1()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "hashSHA256":{
+                    "description": "Hashes a string with SHA256",
+                    "syntax": "a.hashSHA256()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "hashSHA512":{
+                    "description": "Hashes a string with SHA512",
+                    "syntax": "a.hashSHA512()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
             },
             "M_Array": {
                 "index()": {
@@ -465,6 +529,16 @@
                     },
                     "returns": "object"
                 },
+                "insert()": {
+                    "description": "Inserts a key into an object",
+                    "syntax": "a.insert(b, c)",
+                    "parameters": {
+                        "a": "An input object",
+                        "b": "The key to insert",
+                        "c": "The value to insert"
+                    },
+                    "returns": "object"
+                },
             },
             "M_Utility": {
                 "type": {
@@ -576,7 +650,7 @@
                         "a": "An input vector"
                     },
                     "returns": "array"
-                }
+                },
             },
             "M_Timestamp": {
                 'timestamp("convert-full")': {
@@ -710,6 +784,15 @@
                     "parameters": {
                         "a": "An input number",
                         "b": "The number to divide by"
+                    },
+                    "returns": "number"
+                },
+                "b^": {
+                    "description": "Power without the integer limit",
+                    "syntax": "a b^ b",
+                    "parameters": {
+                        "a": "An input number",
+                        "b": "The power to raise to"
                     },
                     "returns": "number"
                 },
@@ -856,6 +939,24 @@
                     "parameters": {
                         "a": "An input value",
                         "b": "The string to check"
+                    },
+                    "returns": "boolean"
+                },
+                "notIn": {
+                    "description": "Returns if a value is not in a string",
+                    "syntax": "a notIn b",
+                    "parameters": {
+                        "a": "An input value",
+                        "b": "The string to check"
+                    },
+                    "returns": "boolean"
+                },
+                "!>": {
+                    "description": "Returns if a value is not greater than another",
+                    "syntax": "a !> b",
+                    "parameters": {
+                        "a": "An input value",
+                        "b": "The value to compare"
                     },
                     "returns": "boolean"
                 },
