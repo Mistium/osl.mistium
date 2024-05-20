@@ -770,6 +770,30 @@
                     },
                     "returns": "string"
                 },
+                "encodeBin()":{
+                    "description": "Encodes a string to binary",
+                    "syntax": "a.encodeBin()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "decodeBin()":{
+                    "description": "Decodes a binary string",
+                    "syntax": "a.decodeBin()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
+                "encodeHex()":{
+                    "description": "Encodes a string to hexadecimal",
+                    "syntax": "a.encodeHew()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
+                },
                 "hashMD5()": {
                     "description": "Hashes a string with MD5",
                     "syntax": "a.hashMD5()",
@@ -802,8 +826,32 @@
                     },
                     "returns": "string"
                 },
+                "newString()":{
+                    "description": "Creates a new string (empty string with length of a)",
+                    "syntax": "a.newString()",
+                    "parameters": {
+                        "a": "The length of the string to create"
+                    },
+                    "returns": "string"
+                }
             },
             "M_Array": {
+                "newArray()":{
+                    "description": "Creates a new array ['','','']",
+                    "syntax": "a.newArray()",
+                    "parameters": {
+                        "a": "The length of the array to create"
+                    },
+                    "returns": "array"
+                },
+                "newVector()":{
+                    "description": "Creates a new vector [0,0,0]",
+                    "syntax": "a.newVector()",
+                    "parameters": {
+                        "a": "The length of the vector to create"
+                    },
+                    "returns": "array"
+                },
                 "index()": {
                     "description": "Returns the index of a value in an array",
                     "syntax": "a.index(b)",
