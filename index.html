@@ -54,6 +54,7 @@
             <a href="#M_Keyboard">Keyboard Inputs</a>
             <a href="#M_Vector">Vectors</a>
             <a href="#M_Timestamp">Timestamps</a>
+            <a href="#M_Websocket">Websockets</a>
             <a href="#M_Web">Web</a>
         </div>
         <p class="section">Operators</p>
@@ -1209,6 +1210,73 @@
                         "a": "An input timestamp"
                     },
                     "returns": "string"
+                },
+            },
+            "M_Websocket":{
+                'newWebsocket()':{
+                    "description": "Creates a new websocket",
+                    "syntax": "var = 'url:port'.newWebsocket()",
+                    "parameters": {
+                        "url:port": "The url and port to connect to"
+                    },
+                    "returns": "websocket identifier"
+                },
+                'wsSend()':{
+                    "description": "Sends a message to a websocket",
+                    "syntax": "a.wsSend(b)",
+                    "parameters": {
+                        "a": "The websocket id to send to",
+                        "b": "The message to send"
+                    },
+                    "returns": "a"
+                },
+                'wsClose()':{
+                    "description": "Closes a websocket",
+                    "syntax": "a.wsClose()",
+                    "parameters": {
+                        "a": "The websocket id to close"
+                    },
+                    "returns": "a"
+                },
+                'wsGetnext()':{
+                    "description": "Gets the next message from a websocket's queue then removes the message from the queue",
+                    "syntax": "a.wsGetnext()",
+                    "parameters": {
+                        "a": "The websocket id to get from"
+                    },
+                    "returns": "string"
+                },
+                'wsGetall()':{
+                    "description": "Gets all messages from a websocket's queue",
+                    "syntax": "a.wsGetall()",
+                    "parameters": {
+                        "a": "The websocket id to get from"
+                    },
+                    "returns": "array"
+                },
+                'wsGetcount()':{
+                    "description": "Gets the amount of messages in a websocket's queue",
+                    "syntax": "a.wsGetcount()",
+                    "parameters": {
+                        "a": "The websocket id to get from"
+                    },
+                    "returns": "int"
+                },
+                'wsOpen()':{
+                    "description": "Returns if a websocket is connected",
+                    "syntax": "a.wsOpen()",
+                    "parameters": {
+                        "a": "The websocket id to check"
+                    },
+                    "returns": "boolean"
+                },
+                'wsHasnew()':{
+                    "description": "Returns if a websocket has a new message",
+                    "syntax": "a.wsHasnew()",
+                    "parameters": {
+                        "a": "The websocket id to check"
+                    },
+                    "returns": "boolean"
                 },
             },
             "M_Web": {
