@@ -42,6 +42,7 @@
             <a href="#V_Data">Data</a>
             <a href="#V_Constants">Constants</a>
             <a href="#V_Background">Background</a>
+            <a href="#V_UiData">UI Data</a>
             <a href="#V_UserData">User Data</a>
         </div>
         <p class="section">Methods</p>
@@ -398,6 +399,26 @@
                     "returns": "boolean"
                 }
             },
+            "V_UiData":{
+                "mouse_touching":{
+                    "description": "Returns if the mouse is touching the last rendered ui element",
+                    "syntax": "mouse_touching",
+                    "parameters": {},
+                    "returns": "boolean"
+                },
+                "clicked":{
+                    "description": "Returns if the mouse has clicked the last rendered ui element",
+                    "syntax": "clicked",
+                    "parameters": {},
+                    "returns": "boolean"
+                },
+                "onclick":{
+                    "description": "Returns true only on the first frame that the mouse clicks the last rendered ui element",
+                    "syntax": "onclick",
+                    "parameters": {},
+                    "returns": "boolean"
+                },
+            },
             "V_Battery": {
                 "battery_charging": {
                     "description": "Returns if the battery is charging",
@@ -425,12 +446,6 @@
                 },
             },
             "V_Data": {
-                "global_accent": {
-                    "description": "The global accent colour",
-                    "syntax": "global_accent",
-                    "parameters": {},
-                    "returns": "string"
-                },
                 "focused_application": {
                     "description": "The id of the application that is currently focused",
                     "syntax": "focused_application",
@@ -536,6 +551,12 @@
                 "user_folder": {
                     "description": "The folder that the user's data is stored in (origin/(C) Users/username)",
                     "syntax": "user_folder",
+                    "parameters": {},
+                    "returns": "string"
+                },
+                "global_accent": {
+                    "description": "The global accent colour",
+                    "syntax": "global_accent",
                     "parameters": {},
                     "returns": "string"
                 },
