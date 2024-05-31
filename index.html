@@ -29,7 +29,7 @@
             .catch(error => console.error('Error fetching topbar HTML:', error));
     </script>
     <div class="sidebar">
-        <p class="section">Variables</p>
+        <p class="section">-- Variables --</p>
         <div class="variables">
             <a href="#V_Time">Time</a>
             <a href="#V_Performance">Performance</a>
@@ -45,8 +45,9 @@
             <a href="#V_UiData">UI Data</a>
             <a href="#V_UserData">User Data</a>
         </div>
-        <p class="section">Methods</p>
+        <p class="section">-- Methods --</p>
         <div class="methods">
+            <p>- Basics -</p>
             <a href="#M_Math">Math Methods</a>
             <a href="#M_String">String Methods</a>
             <a href="#M_Array">Array Methods</a>
@@ -55,10 +56,15 @@
             <a href="#M_Keyboard">Keyboard Inputs</a>
             <a href="#M_Vector">Vectors</a>
             <a href="#M_Timestamp">Timestamps</a>
+            <p>- External -</p>
             <a href="#M_Websocket">Websockets</a>
             <a href="#M_Web">Web</a>
+            <a href="#M_GPT">Chat GPT</a>
+            <p>- Other -</p>
+            <a href="#M_Files">Files</a>
+            <a href="#M_OASM">OASM and OTAS</a>
         </div>
-        <p class="section">Operators</p>
+        <p class="section">-- Operators --</p>
         <div class="operators">
             <a href="#O_Math">Math Operators</a>
             <a href="#O_comparisons">Comparisons</a>
@@ -66,7 +72,7 @@
             <a href="#O_Vectors">Vector Operators</a>
             <a href="#O_Arrays">Array Operators</a>
         </div>
-        <p class="section">Modifiers</p>
+        <p class="section">-- Modifiers --</p>
         <div class="modifiers">
             <a href="#C_About">About Modifiers</a>
             <a href="#C_Position">Positioning</a>
@@ -1240,7 +1246,8 @@
                     "parameters": {
                         "url:port": "The url and port to connect to"
                     },
-                    "returns": "websocket identifier"
+                    "returns": "websocket identifier",
+                    "example": "var = 'wss://echo.websocket.org:443'.newWebsocket()"
                 },
                 'wsSend()':{
                     "description": "Sends a message to a websocket",
@@ -1249,7 +1256,8 @@
                         "a": "The websocket id to send to",
                         "b": "The message to send"
                     },
-                    "returns": "a"
+                    "returns": "a",
+                    "example": "<br>var = 'wss://echo.websocket.org:443'.newWebsocket()<br>var.wsSend(\"hello\")"
                 },
                 'wsClose()':{
                     "description": "Closes a websocket",
@@ -1257,7 +1265,8 @@
                     "parameters": {
                         "a": "The websocket id to close"
                     },
-                    "returns": "a"
+                    "returns": "a",
+                    "example": "<br>var = 'wss://echo.websocket.org:443'.newWebsocket()<br>var.wsClose()"
                 },
                 'wsGetnext()':{
                     "description": "Gets the next message from a websocket's queue then removes the message from the queue",
@@ -1265,7 +1274,8 @@
                     "parameters": {
                         "a": "The websocket id to get from"
                     },
-                    "returns": "string"
+                    "returns": "string",
+                    "example": "<br>var = 'wss://echo.websocket.org:443'.newWebsocket()<br>var.wsSend(\"hello\")<br><br>mainloop:<br>if var.wsHasnew() (<br>  log var.wsGetnext()<br>)"
                 },
                 'wsGetall()':{
                     "description": "Gets all messages from a websocket's queue",
@@ -1308,7 +1318,138 @@
                         "a": "The website to get",
                     },
                     "returns": "string"
+                },
+                "makeUrl()":{
+                    "description":"Converts input data to a data url with a type input",
+                    "syntax":"a.makeUrl(b)",
+                    "parameters":{
+                        "a":"The data to convert",
+                        "b":"The type of data like 'image/png'"
+                    },
+                    "returns":"string"
                 }
+            },
+            "M_GPT":{
+                "gptNew()":{
+                    "description": "returns the id for a new gpt chat",
+                    "syntax": "bot = gptNew()",
+                    "parameters": {},
+                    "returns": "string"
+                },
+                "gptSend()":{
+                    "description": "sends a message to a gpt chat",
+                    "syntax": "bot.gptSend(message)",
+                    "parameters": {
+                        "bot": "The gpt chat id",
+                        "message": "The message to send"
+                    },
+                    "returns": "string (output of the bot)"
+                },
+                "gptRemove()":{
+                    "description": "Deletes a gpt chat",
+                    "syntax": "bot.gptRemove()",
+                    "parameters": {
+                        "bot": "The gpt chat id"
+                    },
+                    "returns": "null"
+                },
+                "gptGenerate()":{
+                    "description": "Generates a message with no context without needing to make a chat",
+                    "syntax": "message.gptGenerate()",
+                    "example": "ans = \"what is 1 + 1?\".gptGenerate()",
+                    "parameters": {
+                        "message": "The message to generate"
+                    },
+                    "returns": "string (output of gpt)"
+                },
+                "gptHistory()":{
+                    "description": "Returns the history of a gpt chat",
+                    "syntax": "bot.gptHistory()",
+                    "parameters": {
+                        "bot": "The gpt chat id"
+                    },
+                    "returns": "array",
+                    "example": "<br>bot = gptNew()<br>log bot.gptHistory()"
+                },
+                "gptReset()":{
+                    "description": "Resets the history of a gpt chat",
+                    "syntax": "bot.gptReset()",
+                    "parameters": {
+                        "bot": "The gpt chat id"
+                    },
+                    "returns": "parameter: bot"
+                },
+                "gptInform()":{
+                    "description": "Allows you to give the chat bot information to help it generate better responses",
+                    "syntax": "bot.gptInform()",
+                    "parameters": {
+                        "bot": "The gpt chat id"
+                    },
+                    "returns": "parameter: bot",
+                    "example":"<br>programmer = gptNew()<br>programmer.gptInform(\"You are a master programmer\")<br><br>log programmer.gptSend(\"how do I print text in python?\")"
+                },
+            },
+            "M_Files":{
+                "getFolder()":{
+                    "description": "Returns the contents of a folder",
+                    "syntax": "a.getFolder()",
+                    "parameters": {
+                        "a": "The folder to get "
+                    },
+                    "returns": "array (of file uuids inside the folder) or [\"Access Denied\"]",
+                    "example": "log origin.getFolder(\"origin/(C) Users/username\")"
+                },
+                "getFile()":{
+                    "description": "Returns the contents of a file",
+                    "syntax": "a.getFile()",
+                    "parameters": {
+                        "a": "The file to get (uuid or path or int id)"
+                    },
+                    "returns": "string (file contents) or \"Access Denied\"",
+                    "example": "log origin.getFile(\"origin/(C) Users/username/file.txt\")"
+                },
+            },
+            "M_OASM":{
+                "compileOASM()":{
+                    "description": "Compiles OASM code",
+                    "syntax": "a.compileOASM()",
+                    "parameters": {
+                        "a": "The OASM code to compile"
+                    },
+                    "returns": "string"
+                },
+                "compileOTAS()":{
+                    "description": "Compiles OTAS code into compiled OASM code, this is much faster than using .runOTAS()",
+                    "syntax": "a.compileOTAS()",
+                    "parameters": {
+                        "a": "The OTAS code to compile"
+                    },
+                    "returns": "string"
+                },
+                "asOASM()":{
+                    "description": "Compiles OTAS code into source OASM code, this is much faster than using .runOTAS()",
+                    "syntax": "a.asOASM()",
+                    "parameters": {
+                        "a": "The OTAS code to compile"
+                    },
+                    "returns": "string"
+                },
+                "runOASM()":{
+                    "description": "Runs OASM code",
+                    "syntax": "a.runOASM()",
+                    "parameters": {
+                        "a": "The OASM code to run"
+                    },
+                    "returns": "string"
+                },
+                "runOTAS()":{
+                    "description": "Runs OTAS code, this is much slower than using .compileOTAS() and then .runOASM()",
+                    "syntax": "a.runOTAS()",
+                    "parameters": {
+                        "a": "The OTAS code to run"
+                    },
+                    "returns": "string"
+                },
             },
             "O_Math": {
                 "+": {
@@ -1318,7 +1459,8 @@
                         "a": "An input number",
                         "b": "The number to add"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 1 + 1"
                 },
                 "-": {
                     "description": "Subtracts two values",
@@ -1327,7 +1469,8 @@
                         "a": "An input number",
                         "b": "The number to subtract"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 1 - 1"
                 },
                 "*": {
                     "description": "Multiplies two values together",
@@ -1336,7 +1479,8 @@
                         "a": "An input number",
                         "b": "The number to multiply"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 2 * 4"
                 },
                 "/": {
                     "description": "Divides two values",
@@ -1345,7 +1489,8 @@
                         "a": "An input number",
                         "b": "The number to divide by"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 4 / 2"
                 },
                 "%": {
                     "description": "Returns the remainder of a division",
@@ -1354,7 +1499,8 @@
                         "a": "An input number",
                         "b": "The number to divide by"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 5 % 2"
                 },
                 "^": {
                     "description": "Returns the power of a number",
@@ -1363,7 +1509,8 @@
                         "a": "An input number",
                         "b": "The power to raise to"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 2 ^ 3"
                 },
                 "b+": {
                     "description": "Add without the integer limit",
@@ -1372,7 +1519,8 @@
                         "a": "An input number",
                         "b": "The number to add"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log ( 1 ^ 999999 ) B+ ( 1 ^ 999999 )"
                 },
                 "b-": {
                     "description": "Subtract without the integer limit",
@@ -1381,7 +1529,8 @@
                         "a": "An input number",
                         "b": "The number to subtract"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log ( 1 ^ 999999 ) B- ( 1 ^ 999999 )"
                 },
                 "b*": {
                     "description": "Multiply without the integer limit",
@@ -1390,7 +1539,8 @@
                         "a": "An input number",
                         "b": "The number to multiply"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log ( 1 ^ 999999 ) B* ( 1 ^ 999999 )"
                 },
                 "b/": {
                     "description": "Divide without the integer limit",
@@ -1399,7 +1549,8 @@
                         "a": "An input number",
                         "b": "The number to divide by"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log ( 1 ^ 999999 ) B/ ( 1 ^ 999999 )"
                 },
                 "b^": {
                     "description": "Power without the integer limit",
@@ -1408,7 +1559,8 @@
                         "a": "An input number",
                         "b": "The power to raise to"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log ( 1 ^ 999999 ) B^ ( 1 ^ 999999 )"
                 },
             },
             "O_comparisons": {
@@ -1419,7 +1571,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 == 1"
                 },
                 "!=": {
                     "description": "Returns if two values are not equal",
@@ -1428,7 +1581,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 != 2"
                 },
                 ">": {
                     "description": "Returns if a value is greater than another",
@@ -1437,7 +1591,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 2 > 1"
                 },
                 "<": {
                     "description": "Returns if a value is less than another",
@@ -1446,7 +1601,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 < 2"
                 },
                 ">=": {
                     "description": "Returns if a value is greater than or equal to another",
@@ -1455,7 +1611,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 2 >= 1"
                 },
                 "<=": {
                     "description": "Returns if a value is less than or equal to another",
@@ -1464,7 +1621,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 <= 2"
                 },
                 "===": {
                     "description": "Returns if two values are equal and of the same type",
@@ -1473,7 +1631,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 === 1"
                 },
                 "!==": {
                     "description": "Returns if two values are not equal or not of the same type",
@@ -1482,7 +1641,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 !== 2"
                 },
                 "//": {
                     "description": "Returns the floor division of two values",
@@ -1491,7 +1651,8 @@
                         "a": "An input value",
                         "b": "The value to divide by"
                     },
-                    "returns": "number"
+                    "returns": "number",
+                    "example": "log 5 // 2"
                 },
                 "and": {
                     "description": "Returns if both values are true",
@@ -1500,7 +1661,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log true and true"
                 },
                 "or": {
                     "description": "Returns if one of the values is true",
@@ -1509,7 +1671,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log true or false"
                 },
                 "nor": {
                     "description": "Returns if none of the values are true",
@@ -1518,7 +1681,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log false nor false"
                 },
                 "nand": {
                     "description": "Returns if one of the values is false",
@@ -1527,7 +1691,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log true nand false"
                 },
                 "xor": {
                     "description": "Returns if one of the values is true and the other is false",
@@ -1536,7 +1701,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log true xor false"
                 },
                 "xand": {
                     "description": "Returns if both values are true or both are false",
@@ -1554,7 +1720,8 @@
                         "a": "An input value",
                         "b": "The string to check"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log \"a\" in \"abc\""
                 },
                 "notIn": {
                     "description": "Returns if a value is not in a string",
@@ -1563,7 +1730,8 @@
                         "a": "An input value",
                         "b": "The string to check"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log \"d\" notIn \"abc\""
                 },
                 "!>": {
                     "description": "Returns if a value is not greater than another",
@@ -1572,7 +1740,8 @@
                         "a": "An input value",
                         "b": "The value to compare"
                     },
-                    "returns": "boolean"
+                    "returns": "boolean",
+                    "example": "log 1 !> 2"
                 },
             },
             "O_strings": {
@@ -1583,7 +1752,8 @@
                         "a": "An input string",
                         "b": "The string to concatenate"
                     },
-                    "returns": "string"
+                    "returns": "string",
+                    "example": "<br>log \"Hello\" + \"World\"<br>// returns \"Hello World\""
                 },
                 "++": {
                     "description": "Concatenates two strings without a space in between",
@@ -1592,7 +1762,8 @@
                         "a": "An input string",
                         "b": "The string to concatenate"
                     },
-                    "returns": "string"
+                    "returns": "string",
+                    "example": "<br>log \"Hello\" ++ \"World\"<br>// returns \"helloworld\""
                 },
                 "*": {
                     "description": "Repeats a string a certain amount of times",
@@ -1601,7 +1772,8 @@
                         "a": "An input string",
                         "b": "The amount of times to repeat"
                     },
-                    "returns": "string"
+                    "returns": "string",
+                    "example": "log \"Hello \" * 3"
                 },
                 "-": {
                     "description": "Removes a value from a string basically replaces 'b' in 'a' with an empty string",
@@ -1610,7 +1782,8 @@
                         "a": "An input string",
                         "b": "The value to remove"
                     },
-                    "returns": "string"
+                    "returns": "string",
+                    "example": "log \"Hello World\" - \"World\""
                 },
             },
             "O_Vectors": {
@@ -1621,7 +1794,8 @@
                         "a": "An input vector",
                         "b": "The vector to add"
                     },
-                    "returns": "array"
+                    "returns": "array",
+                    "example": "log [1, 2] + [3, 4]"
                 },
                 "-": {
                     "description": "Subtracts two vectors",
@@ -1630,7 +1804,8 @@
                         "a": "An input vector",
                         "b": "The vector to subtract"
                     },
-                    "returns": "array"
+                    "returns": "array",
+                    "example": "log [3, 4] - [1, 2]"
                 },
                 "*": {
                     "description": "Multiplies two vectors",
@@ -1639,7 +1814,8 @@
                         "a": "An input vector",
                         "b": "The vector to multiply"
                     },
-                    "returns": "array"
+                    "returns": "array",
+                    "example": "log [1, 2] * [3, 4]"
                 },
                 "/": {
                     "description": "Divides two vectors",
@@ -1648,7 +1824,8 @@
                         "a": "An input vector",
                         "b": "The vector to divide"
                     },
-                    "returns": "array"
+                    "returns": "array",
+                    "example": "log [3, 4] / [1, 2]"
                 },
             },
             "O_Arrays": {
