@@ -8,7 +8,6 @@ html,body {
   background: linear-gradient(135deg, #000, #57cdac);
 }
 
-
 .nav-container {
   display: flex;
   align-items: center;
@@ -42,90 +41,12 @@ html,body {
   text-align: center;
 }
 
-/* Style for profile cards */
-.profile-card {
-  border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
-  transition: 0.2s;
-}
-
-.profile-card:hover {
-  background-color: rgba(0, 0, 0, 1);
-  transition: 0.2s;
-  scale: 1.05;
-}
-
-.profile-card h2 {
-  padding: 0px;
-  opacity: 1;
-  color: #fff;
-}
-
-.profile-card p {
-  opacity: 1;
-  color: #ddd;
-}
-
-.profile-image {
-  background-color: rgba(10, 10, 10, 0.7);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10%;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  display: block;
-}
-
 a:focus,
 a:active {
   color: #fff;
   outline: none;
 }
 
-.project-card {
-  border-radius: 15px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  margin: 10px;
-  width: 600px;
-  min-height: 500px;
-  display: inline-block;
-  vertical-align: top;
-  transition: 0.2s;
-}
-.project-card img {
-  width: 100%;
-  border-radius: 5px;
-  opacity: 1;
-  height: auto;
-}
-.project-card h3 {
-  margin: 15px 0;
-}
-.project-card p {
-  margin: 15px 0;
-}
-.project-card a {
-  border-radius: 10px;
-  display: inline-block;
-  margin: 15px 0;
-  width: 300px;
-  padding: 10px 15px;
-  background-color: #57cdac;
-  color: #fff;
-  text-decoration: none;
-}
-.project-card:hover {
-  background-color: rgba(0, 0, 0, 1);
-  transition: 0.2s;
-  scale: 1.005;
-}
 
 /* The side navigation menu */
 .sidebar {
@@ -151,6 +72,7 @@ a:active {
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
   background-color: rgb(10,10,10,0.8);
+  border-radius: 10px;
   color: white;
 }
 
@@ -221,8 +143,15 @@ div.content {
   padding-bottom: 15px;
 }
 
-.section {
-  padding: 10px;
-  scale: 10px;
+.sidebar p {
+  display: block;
   color: #888;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.section {
+  padding: 10px !important;
+  scale: 10px !important;
+  color: #888 !important;
 }
