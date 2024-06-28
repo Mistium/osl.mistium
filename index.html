@@ -1011,16 +1011,16 @@
                     "returns": "array/string"
                 },
                 "insert()": {
-                    "description": "Inserts a value into an array or string",
+                    "description": "Inserts a value into an array or string, can also be used to insert a key and value into a json object",
                     "syntax": "a.insert(b, c)",
                     "parameters": {
-                        "a": "An input array/string",
+                        "a": "An input object/array/string",
                         "b": "The index to insert at",
                         "c": "The value to insert"
                     },
                     "returns": "array/string"
                 },
-                "randomOf": {
+                "randomOf()": {
                     "description": "Returns a random item from an array",
                     "syntax": "a.randomOf()",
                     "parameters": {
@@ -1127,7 +1127,7 @@
                     },
                     "returns": "Untyped"
                 },
-                "ask": {
+                "ask()": {
                     "description": "Asks the user for input",
                     "syntax": "a.ask",
                     "parameters": {
@@ -1135,7 +1135,7 @@
                     },
                     "returns": "string"
                 },
-                "chance": {
+                "chance()": {
                     "description": "Returns if the chance is true or false",
                     "syntax": "a.chance",
                     "parameters": {
