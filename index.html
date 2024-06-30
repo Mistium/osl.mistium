@@ -268,15 +268,28 @@
                     "description": "The window object, contains all window properties",
                     "syntax": "window",
                     "parameters": {},
-                    "returns": "object"
+                    "returns": "object",
+                    "about":"https://github.com/Mistium/Origin-OS/wiki/OSL-%E2%80%90-The-window"
                 },
-                "parent": {
+                "window.x":{
+                    "description": "The x position of the window",
+                    "syntax": "window.x",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "window.y":{
+                    "description": "The y position of the window",
+                    "syntax": "window.y",
+                    "parameters": {},
+                    "returns": "int"
+                },
+                "window.parent.id": {
                     "description": "The id of the window that created the current window",
                     "syntax": "parent",
                     "parameters": {},
                     "returns": "int"
                 },
-                "window_id": {
+                "window.id": {
                     "description": "The id of the window",
                     "syntax": "window_id",
                     "parameters": {},
@@ -328,6 +341,9 @@
                 },
             },
             "V_Transmit": {
+                "Using the transmit system":{
+                    "description": "https://github.com/Mistium/Origin-OS/wiki/OSL-%E2%80%90-Transmit",
+                },
                 "new_transmit": {
                     "description": "Returns if there is new transmit data",
                     "syntax": "new_transmit",
@@ -774,6 +790,14 @@
                         "b": "The value to find"
                     },
                     "returns": "int"
+                },
+                "strip()":{
+                    "description": "Strips a string of all trailing and starting whitespace",
+                    "syntax": "a.strip()",
+                    "parameters": {
+                        "a": "An input string"
+                    },
+                    "returns": "string"
                 },
                 "toTitle()": {
                     "description": "Converts a string to title case",
